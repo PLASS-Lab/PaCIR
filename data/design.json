@@ -1,0 +1,238 @@
+{
+  "thresholds": [
+    1,
+    3,
+    5
+  ],
+  "windows": 2298,
+  "cue_events_per_threshold": 45554,
+  "public_inputs": {
+    "windows": 2234,
+    "cue_events_per_threshold": 45294,
+    "domains": {
+      "attack": 1000,
+      "irc": 1046,
+      "switchboard": 128,
+      "tab": 60
+    }
+  },
+  "recorded_reference_only": {
+    "domain": "callhome",
+    "windows": 64,
+    "cue_events_per_threshold": 260
+  },
+  "conditions": {
+    "none": "relations withheld",
+    "even-immediate": "reference relations for even-numbered cues",
+    "all-immediate": "all reference relations without delay",
+    "all-delayed-2": "all reference relations delayed by two events"
+  },
+  "observation_denominator": "Cue-adding events only; two delayed tail events are counted separately.",
+  "original_environment": {
+    "python": "3.12.13",
+    "python_sat": "1.9.dev15",
+    "solver": "Glucose 3",
+    "platform": "Windows"
+  },
+  "sequential_ablation_wall_seconds": 300,
+  "task_counts": {
+    "methods-k1": 9192,
+    "methods-k35": 18384,
+    "relations-k1": 9192,
+    "relations-k35": 18384,
+    "ablation-initial": 9192,
+    "ablation-sequential": 894,
+    "ablation-hall": 9006,
+    "ablation-synthetic": 1080,
+    "ablation-k35": 9652,
+    "ablation-remeasurement": 6590
+  },
+  "irc_counts": {
+    "files": 10,
+    "windows": 81,
+    "risk_tasks": 486,
+    "model_calls": 2935
+  },
+  "internal_limits": {
+    "variables": 500000,
+    "clauses": 2000000,
+    "conflicts": 100000,
+    "inspections": 1000
+  },
+  "main_external_limits": {
+    "max_clues": 64,
+    "wall_seconds": 15,
+    "rss_MiB": 768
+  },
+  "run_settings": {
+    "ablation-initial": {
+      "wall_seconds": 15,
+      "memory_bytes": 805306368,
+      "workers": 6,
+      "seed": "pacir-ablation-20261102-v1",
+      "variants": {
+        "full": {
+          "compress": true,
+          "symmetry": true,
+          "exclusions": "generalized"
+        },
+        "no-reduction": {
+          "compress": false,
+          "symmetry": true,
+          "exclusions": "generalized"
+        },
+        "no-symmetry": {
+          "compress": true,
+          "symmetry": false,
+          "exclusions": "generalized"
+        },
+        "inspected-only": {
+          "compress": true,
+          "symmetry": true,
+          "exclusions": "inspected"
+        }
+      }
+    },
+    "ablation-sequential": {
+      "wall_seconds": 300,
+      "memory_bytes": 805306368,
+      "workers": 1,
+      "seed": "pacir-followup-20261102-v1",
+      "variants": {
+        "full": [
+          "ExactHallQuery",
+          true,
+          true
+        ],
+        "no-reduction": [
+          "ExactHallQuery",
+          false,
+          true
+        ],
+        "no-symmetry": [
+          "ExactHallQuery",
+          true,
+          false
+        ]
+      }
+    },
+    "ablation-hall": {
+      "wall_seconds": 120,
+      "memory_bytes": 805306368,
+      "workers": 6,
+      "seed": "pacir-followup-20261102-v1",
+      "variants": {
+        "exact-gen": [
+          "ExactHallQuery",
+          true,
+          true
+        ],
+        "exact-insp": [
+          "ExactHallInspected",
+          true,
+          true
+        ],
+        "tight-gen": [
+          "CertificateQuery",
+          true,
+          true
+        ],
+        "tight-insp": [
+          "HallQuery",
+          true,
+          true
+        ],
+        "size-gen": [
+          "SizeGeneralized",
+          true,
+          true
+        ],
+        "size-insp": [
+          "Query",
+          true,
+          true
+        ]
+      }
+    },
+    "ablation-synthetic": {
+      "wall_seconds": 120,
+      "memory_bytes": 805306368,
+      "workers": 6,
+      "seed": "pacir-followup-20261102-v1",
+      "variants": {
+        "exact-gen": [
+          "ExactHallQuery",
+          true,
+          true
+        ],
+        "exact-insp": [
+          "ExactHallInspected",
+          true,
+          true
+        ],
+        "tight-gen": [
+          "CertificateQuery",
+          true,
+          true
+        ],
+        "tight-insp": [
+          "HallQuery",
+          true,
+          true
+        ],
+        "size-gen": [
+          "SizeGeneralized",
+          true,
+          true
+        ],
+        "size-insp": [
+          "Query",
+          true,
+          true
+        ]
+      }
+    },
+    "ablation-k35": {
+      "wall_seconds": 20,
+      "memory_bytes": 805306368,
+      "workers": 1,
+      "seed": "pacir-k35-20261103-v1",
+      "variants": {
+        "full": [
+          "ExactHallQuery",
+          true,
+          true
+        ],
+        "no-reduction": [
+          "ExactHallQuery",
+          false,
+          true
+        ],
+        "no-symmetry": [
+          "ExactHallQuery",
+          true,
+          false
+        ]
+      },
+      "thresholds": [
+        13.3,
+        15.0,
+        17.0
+      ]
+    },
+    "ablation-remeasurement": {
+      "wall_seconds": 20,
+      "memory_bytes": 805306368,
+      "workers": 1,
+      "seed": "pacir-k35-remeasure-20261104-v1",
+      "thresholds": [
+        13.3,
+        15.0,
+        17.0
+      ],
+      "slow_ratio": 1.1,
+      "cutoff": 6250,
+      "bridge_jobs": 340
+    }
+  }
+}

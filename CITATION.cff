@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it using this metadata."
+type: software
+title: "PaCIR: Possible and Certain Candidate-Based Identification Risk under Uncertain Subject Linkage"
+authors:
+  - family-names: Lee
+    given-names: Yeongseop
+  - family-names: Jung
+    given-names: ChanSung
+  - family-names: Son
+    given-names: Yunsik
+keywords:
+  - candidate sets
+  - uncertain linkage
+  - constraint-based inference
+  - identification risk

@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.env
+.env.*
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+results/
+verification-results*.json
+*.log
